@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charlie's Cakes — Tortas artesanales en Soacha</title>
   <meta name="description" content="Tortas artesanales y personalizadas en Soacha, Cundinamarca. Cumpleaños, baby shower, temáticas y más. Pedidos por WhatsApp." />
+
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon-192.png" sizes="192x192" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Charlie's Cakes" />
+  <meta property="og:title" content="Charlie's Cakes — Tortas artesanales en Soacha" />
+  <meta property="og:description" content="Tortas artesanales y 100% personalizadas en Soacha, Cundinamarca. Cumpleaños, baby shower, temáticas y más. Pedidos por WhatsApp." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_CO" />
+  <!-- Nota NovaTech: cuando quede publicada la página, reemplazar la ruta de og:image por la URL absoluta (https://tu-dominio/assets/og-image.jpg) y agregar og:url — algunas apps (WhatsApp, Facebook) no resuelven bien rutas relativas. -->
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Charlie's Cakes — Tortas artesanales en Soacha" />
+  <meta name="twitter:description" content="Tortas artesanales y 100% personalizadas en Soacha, Cundinamarca. Pedidos por WhatsApp." />
+  <meta name="twitter:image" content="assets/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
@@ -331,6 +354,26 @@
     .paso h3 { font-size: 17px; font-weight: 900; color: var(--oscuro); }
     .paso p { font-size: 14px; color: var(--gris); max-width: 200px; }
     .paso-icono { font-size: 32px; }
+
+    /* ─── PRECIOS ───────────────────────────────────────── */
+    .precios-card {
+      margin-top: 56px;
+      background: #fff; border: 1px solid var(--borde); border-radius: 24px;
+      padding: 36px 40px;
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .precios-icon {
+      width: 64px; height: 64px; border-radius: 18px; flex-shrink: 0;
+      background: #fff5f0; display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+    }
+    .precios-text { flex: 1; min-width: 220px; }
+    .precios-text h3 { font-size: 18px; font-weight: 900; color: var(--oscuro); margin-bottom: 6px; }
+    .precios-text p { font-size: 14px; color: var(--gris); line-height: 1.6; }
+    .precios-card .btn-primary { flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .precios-card { padding: 28px 24px; text-align: center; flex-direction: column; }
+    }
 
     /* ─── NOSOTROS ──────────────────────────────────────── */
     .nosotros-grid {
@@ -788,6 +831,15 @@
       <p>Recibe tu torta artesanal el día acordado y sorprende a todos en la celebración.</p>
     </div>
   </div>
+
+  <div class="precios-card">
+    <div class="precios-icon">💰</div>
+    <div class="precios-text">
+      <h3>¿Cuánto cuesta mi torta?</h3>
+      <p>Cada torta se cotiza según el diseño y el número de porciones que necesites, para que pagues justo por lo que quieres — nada de paquetes genéricos. Cuéntanos tu idea, la fecha y para cuántas personas es, y te cotizamos el mismo día.</p>
+    </div>
+    <a href="https://wa.me/573229662307?text=Hola%20Charlie's%20Cakes!%20Quisiera%20cotizar%20una%20torta%20%F0%9F%8E%82" target="_blank" class="btn-primary">Cotizar mi torta</a>
+  </div>
 </section>
 
 
@@ -797,7 +849,7 @@
     <div class="nosotros-grid">
       <div class="nosotros-img-grid">
         <img src="assets/carlos_w.png" alt="Carlos — Pastelero Charlie's Cakes" loading="lazy" style="object-position: center top;" />
-        <img src="MULTIMEDIA/WhatsApp Image 2026-05-30 at 5.44.34 PM (2).jpeg" alt="Torta Corona" loading="lazy" />
+        <img src="assets/torta%20(10).png" alt="Torta Corona Beer" loading="lazy" />
         <img src="assets/torta1.png" alt="Torta Hello Kitty" loading="lazy" />
       </div>
       <div class="nosotros-text">
@@ -955,8 +1007,29 @@
       { src: 'assets/torta%20(5).png',    cat: 'Cumpleaños', title: 'Torta de Fresas',   sub: 'Cumpleaños clásico'          },
       { src: 'assets/torta%20(6).png',    cat: 'Cumpleaños', title: 'Torta de Fresas',   sub: 'Vista superior'              },
       { src: 'assets/torta%20(7).png',    cat: 'Cumpleaños', title: 'Torta Happy Birthday', sub: 'Vainilla con confeti'       },
+      { src: 'assets/torta%20(8).png',    cat: 'Cumpleaños', title: 'Torta Happy Birthday', sub: 'Buttercream con topper dorado' },
       { src: 'assets/torta%20(10).png',   cat: 'Temática',   title: 'Torta Corona Beer',   sub: 'Temática adultos'           },
       { src: 'assets/torta%20(9).png',    cat: 'Cumpleaños', title: 'Torta Happy Birthday', sub: 'Clásica con sprinkles'     },
+      { src: 'assets/torta-extra-01.jpg', cat: 'Temática',   title: 'Torta América de Cali', sub: 'Escudo comestible' },
+      { src: 'assets/torta-extra-02.jpg', cat: 'Temática',   title: 'Torta Rayo McQueen', sub: 'Cars · 2 pisos' },
+      { src: 'assets/torta-extra-03.jpg', cat: 'Especiales', title: 'Torta Feliz Navidad', sub: 'Temporada navideña' },
+      { src: 'assets/torta-extra-04.jpg', cat: 'Temática',   title: 'Torta Pikachu', sub: 'Buttercream' },
+      { src: 'assets/torta-extra-05.jpg', cat: 'Especiales', title: 'Torta de Grado', sub: 'Feliz Grado 2024' },
+      { src: 'assets/torta-extra-06.jpg', cat: 'Temática',   title: 'Torta Personajes Animados', sub: 'Diseño a color' },
+      { src: 'assets/torta-extra-07.jpg', cat: 'Cumpleaños', title: 'Torta Drip de Fresa', sub: 'Cobertura con drip rojo' },
+      { src: 'assets/torta-extra-08.jpg', cat: 'Especiales', title: 'Torta Revelación de Género', sub: '¿Niño o niña?' },
+      { src: 'assets/torta-extra-09.jpg', cat: 'Temática',   title: 'Torta Spider-Man', sub: 'Temática infantil' },
+      { src: 'assets/torta-extra-10.jpg', cat: 'Temática',   title: 'Torta Sailor Moon', sub: 'Edición anime' },
+      { src: 'assets/torta-extra-11.jpg', cat: 'Temática',   title: 'Torta Kuromi', sub: 'Nayla · 7 años' },
+      { src: 'assets/torta-extra-12.jpg', cat: 'Cumpleaños', title: 'Torta Floral Lavanda', sub: 'Con mariposas' },
+      { src: 'assets/torta-extra-13.jpg', cat: 'Temática',   title: 'Torta Mickey Mouse', sub: 'Sarita' },
+      { src: 'assets/torta-extra-14.jpg', cat: 'Temática',   title: 'Torta Stitch', sub: 'Emily · 2 pisos' },
+      { src: 'assets/torta-extra-15.jpg', cat: 'Temática',   title: 'Torta GTA San Andreas', sub: 'Edición gamer' },
+      { src: 'assets/torta-extra-16.jpg', cat: 'Temática',   title: 'Torta Paw Patrol', sub: 'Johan · 1 año' },
+      { src: 'assets/torta-extra-17.jpg', cat: 'Especiales', title: 'Torta Corsé con Encaje', sub: 'Diseño escultórico' },
+      { src: 'assets/torta-extra-18.jpg', cat: 'Postres',    title: 'Fresas con Chocolate', sub: 'Cubiertas artesanales' },
+      { src: 'assets/torta-extra-19.jpg', cat: 'Temática',   title: 'Torta Inside Out', sub: '2 pisos' },
+      { src: 'assets/torta-extra-20.jpg', cat: 'Temática',   title: 'Torta Abejitas', sub: 'Tiffany Alexandra · 2 pisos' },
     ];
 
     /* Shuffle Fisher-Yates */
