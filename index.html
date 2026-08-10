@@ -377,6 +377,31 @@
       .precios-card { padding: 28px 24px; text-align: center; flex-direction: column; }
     }
 
+    /* ─── TESTIMONIOS ───────────────────────────────────── */
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .testimonio-card {
+      background: #fff; border: 1px solid var(--borde); border-radius: 20px;
+      padding: 26px 24px; display: flex; flex-direction: column; gap: 14px;
+    }
+    .testimonio-head { display: flex; align-items: center; gap: 12px; }
+    .testimonio-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rojo), var(--naranja));
+      color: #fff; font-weight: 900; font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .testimonio-name { font-size: 14px; font-weight: 800; color: var(--oscuro); }
+    .testimonio-stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
+    .testimonio-text { font-size: 14px; color: var(--gris); line-height: 1.6; flex: 1; }
+    .testimonio-source {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--gris); opacity: .8;
+    }
+
     /* ─── NOSOTROS ──────────────────────────────────────── */
     .nosotros-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -769,6 +794,13 @@
       <div class="section-badge">Lo que hacemos</div>
       <h2 class="section-title">Todo lo que necesitas para <em>celebrar</em></h2>
       <p class="section-sub">Creamos experiencias dulces para cada momento especial de tu vida.</p>
+      <div class="hero-tags" style="justify-content:center; margin-top:16px;">
+        <span class="hero-tag">🍦 Vainilla</span>
+        <span class="hero-tag">🍫 Chocolate</span>
+        <span class="hero-tag">❤️ Red Velvet</span>
+        <span class="hero-tag">🥛 Tres Leches</span>
+        <span class="hero-tag">✨ Y más, a tu gusto</span>
+      </div>
     </div>
     <div class="servicios-grid">
       <div class="servicio-card">
@@ -834,6 +866,14 @@
     </div>
   </div>
 
+  <div class="precios-card" style="margin-top:32px;">
+    <div class="precios-icon">📅</div>
+    <div class="precios-text">
+      <h3>¿Con cuánta anticipación pido mi torta?</h3>
+      <p>Mínimo 3 días antes de tu evento — lo ideal es 5, así tenemos más margen para el diseño que quieres. Por temas de pico y placa, en algunos casos la entrega se adelanta un día (por ejemplo, si tu evento es el día 3 pero ese día nos toca restricción, te la llevamos la noche del día 2). Siempre te avisamos con tiempo si eso aplica para tu pedido.</p>
+    </div>
+  </div>
+
   <div class="precios-card">
     <div class="precios-icon">💰</div>
     <div class="precios-text">
@@ -842,7 +882,73 @@
     </div>
     <a href="https://wa.me/573229662307?text=Hola%20Charlie's%20Cakes!%20Quisiera%20cotizar%20una%20torta%20%F0%9F%8E%82" target="_blank" class="btn-primary">Cotizar mi torta</a>
   </div>
+
+  <div class="precios-card" style="margin-top:32px;">
+    <div class="precios-icon">💳</div>
+    <div class="precios-text">
+      <h3>¿Cómo puedo pagar?</h3>
+      <p>Aceptamos efectivo, Nequi, Bre-B, transferencia o consignación bancaria — lo que te quede más fácil. Coordinamos el pago directamente contigo por WhatsApp al confirmar tu pedido.</p>
+    </div>
+  </div>
 </section>
+
+
+<!-- ═══ TESTIMONIOS ════════════════════════════════════════ -->
+<div class="servicios-bg">
+  <section id="testimonios" class="section">
+    <div class="section-header">
+      <div class="section-badge">Lo que dicen de nosotros</div>
+      <h2 class="section-title">Clientes que ya <em>celebraron</em> con nosotros</h2>
+      <p class="section-sub">Reseñas reales de Google de personas que ya pidieron su torta con Charlie's Cakes.</p>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="testimonio-head">
+          <div class="testimonio-avatar">M</div>
+          <div>
+            <div class="testimonio-name">Meli Isaza</div>
+            <div class="testimonio-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonio-text">"De las tortas más ricas que he probado, adicional la atención de Carlos super excelente, los recomiendo a ojo cerrado."</p>
+        <div class="testimonio-source">📍 Reseña de Google · Local Guide</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-head">
+          <div class="testimonio-avatar">A</div>
+          <div>
+            <div class="testimonio-name">Alejandro Lievano</div>
+            <div class="testimonio-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonio-text">"Excelente servicio, Carlos es una persona demasiado atenta y la torta le gustó mucho a mi familia."</p>
+        <div class="testimonio-source">📍 Reseña de Google</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-head">
+          <div class="testimonio-avatar">H</div>
+          <div>
+            <div class="testimonio-name">Hellen Marín Bernal</div>
+            <div class="testimonio-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonio-text">"Quedé encantada con el trabajo. Se nota el amor, la dedicación y el cuidado en cada detalle. Todo quedó exactamente como lo imaginábamos. Sin duda volvería a encargar mis pasteles aquí y lo recomiendo con toda confianza."</p>
+        <div class="testimonio-source">📍 Reseña de Google</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-head">
+          <div class="testimonio-avatar">J</div>
+          <div>
+            <div class="testimonio-name">Javitrons Amaya</div>
+            <div class="testimonio-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonio-text">"¡Totalmente recomendados! Sus ponqués temáticos hechos con mucho amor y dedicación, cuidando cada detalle del diseño, y son deliciosos. Una gran opción para hacer especial cualquier celebración."</p>
+        <div class="testimonio-source">📍 Reseña de Google</div>
+      </div>
+    </div>
+  </section>
+</div>
 
 
 <!-- ═══ NOSOTROS ═══════════════════════════════════════════ -->
@@ -944,6 +1050,13 @@
         <div>
           <strong>Ubicación</strong>
           <p>Soacha, Cundinamarca<br>Colombia</p>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">🕒</div>
+        <div>
+          <strong>Horario</strong>
+          <p>Lunes a viernes: 9:00 a.m. – 6:00 p.m.<br>Sábados y domingos: cerrado</p>
         </div>
       </div>
     </div>
