@@ -115,7 +115,8 @@
       box-shadow: 0 2px 20px rgba(232,69,42,.07);
     }
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 110px; width: auto; }
+    .nav-logo img { height: 180px; width: auto; transition: height .35s ease; }
+    .nav.scrolled .nav-logo img { height: 110px; }
     .nav-logo-text { display: none; }
     .nav-links {
       display: flex; gap: 28px; list-style: none;
@@ -165,10 +166,12 @@
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 100px 48px 60px;
+      padding: 170px 48px 60px;
+      transition: padding-top .35s ease;
       gap: 40px;
       max-width: 1200px; margin: 0 auto;
     }
+    body.scrolled .hero { padding-top: 100px; }
     .hero-text { display: flex; flex-direction: column; gap: 24px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -640,14 +643,17 @@
     @media (max-width: 900px) {
       .nav-links, .nav-cta-desktop { display: none; }
       .nav-hamburger { display: block; }
-      .nav-logo img { height: 70px; }
-      .nav-mobile { top: 94px; }
+      .nav-logo img { height: 105px; }
+      .nav.scrolled .nav-logo img { height: 70px; }
+      .nav-mobile { top: 129px; transition: top .35s ease; }
+      body.scrolled .nav-mobile { top: 94px; }
 
       .hero {
         grid-template-columns: 1fr;
-        padding: 110px 24px 48px;
+        padding: 145px 24px 48px;
         text-align: center;
       }
+      body.scrolled .hero { padding-top: 110px; }
       .hero-sub { margin: 0 auto; }
       .hero-btns { justify-content: center; }
       .hero-tags { justify-content: center; }
@@ -676,10 +682,13 @@
 
     /* Móvil grande */
     @media (max-width: 600px) {
-      .nav-logo img { height: 60px; }
-      .nav-mobile { top: 84px; }
+      .nav-logo img { height: 85px; }
+      .nav.scrolled .nav-logo img { height: 60px; }
+      .nav-mobile { top: 109px; }
+      body.scrolled .nav-mobile { top: 84px; }
 
-      .hero { padding: 100px 16px 40px; }
+      .hero { padding: 125px 16px 40px; }
+      body.scrolled .hero { padding-top: 100px; }
       .hero-h1 { font-size: clamp(28px, 8vw, 42px); }
       .hero-float { display: none; }
 
@@ -707,10 +716,13 @@
 
     /* Móvil pequeño */
     @media (max-width: 400px) {
-      .nav-logo img { height: 52px; }
-      .nav-mobile { top: 76px; }
+      .nav-logo img { height: 72px; }
+      .nav.scrolled .nav-logo img { height: 52px; }
+      .nav-mobile { top: 96px; }
+      body.scrolled .nav-mobile { top: 76px; }
 
-      .hero { padding: 88px 14px 36px; }
+      .hero { padding: 108px 14px 36px; }
+      body.scrolled .hero { padding-top: 88px; }
       .btn-primary, .btn-secondary { padding: 13px 20px; font-size: 13px; }
 
       .servicios-grid { grid-template-columns: 1fr; }
@@ -1120,7 +1132,9 @@
   /* NAV scroll */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    const isScrolled = window.scrollY > 40;
+    navbar.classList.toggle('scrolled', isScrolled);
+    document.body.classList.toggle('scrolled', isScrolled);
   });
 
   /* Hamburger */
