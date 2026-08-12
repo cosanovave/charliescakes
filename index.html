@@ -69,7 +69,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "reviewCount": "9"
+      "reviewCount": "10"
     }
   }
   </script>
@@ -99,6 +99,25 @@
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+
+    /* ─── CUPCAKES FLOTANTES DE FONDO ───────────────────── */
+    .cupcakes-bg {
+      position: fixed; inset: 0; z-index: -1;
+      overflow: hidden; pointer-events: none;
+    }
+    .cupcake {
+      position: absolute;
+      opacity: .13;
+      line-height: 1;
+      animation: floatCupcake ease-in-out infinite;
+    }
+    @keyframes floatCupcake {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-34px) rotate(9deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cupcake { animation: none; }
+    }
 
     /* ─── NAVBAR ────────────────────────────────────────── */
     .nav {
@@ -637,6 +656,29 @@
     }
     .lightbox-close:hover { background: rgba(255,255,255,.25); }
 
+    /* ─── AVISO DE COOKIES ──────────────────────────────── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 250;
+      background: var(--oscuro); color: #fff;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: center; gap: 18px;
+      flex-wrap: wrap; text-align: center;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.2);
+      transform: translateY(100%); transition: transform .4s ease;
+    }
+    .cookie-banner.show { transform: translateY(0); }
+    .cookie-banner p { font-size: 13px; color: rgba(255,255,255,.85); margin: 0; max-width: 560px; line-height: 1.5; }
+    .cookie-banner button {
+      background: var(--rojo); color: #fff; border: none; padding: 11px 24px; border-radius: 50px;
+      font-weight: 800; font-size: 13px; cursor: pointer; white-space: nowrap; font-family: inherit;
+      transition: background .2s;
+    }
+    .cookie-banner button:hover { background: #c93520; }
+    @media (max-width: 600px) {
+      .cookie-banner { padding: 14px 18px; }
+      .cookie-banner p { font-size: 12px; }
+    }
+
     /* ─── RESPONSIVE ────────────────────────────────────── */
 
     /* Tablet y pantallas medianas */
@@ -733,6 +775,18 @@
   </style>
 </head>
 <body>
+
+<!-- ═══ CUPCAKES DE FONDO ══════════════════════════════════ -->
+<div class="cupcakes-bg" aria-hidden="true">
+  <span class="cupcake" style="top:6%; left:4%; font-size:64px; animation-duration:16s;">🧁</span>
+  <span class="cupcake" style="top:14%; left:88%; font-size:46px; animation-duration:20s; animation-delay:-4s;">🧁</span>
+  <span class="cupcake" style="top:38%; left:47%; font-size:38px; animation-duration:17s; animation-delay:-9s;">🍰</span>
+  <span class="cupcake" style="top:52%; left:8%; font-size:56px; animation-duration:15s; animation-delay:-7s;">🧁</span>
+  <span class="cupcake" style="top:63%; left:82%; font-size:70px; animation-duration:22s; animation-delay:-2s;">🧁</span>
+  <span class="cupcake" style="top:80%; left:28%; font-size:50px; animation-duration:19s; animation-delay:-11s;">🍰</span>
+  <span class="cupcake" style="top:90%; left:60%; font-size:44px; animation-duration:18s; animation-delay:-5s;">🧁</span>
+  <span class="cupcake" style="top:25%; left:20%; font-size:34px; animation-duration:14s; animation-delay:-13s;">🧁</span>
+</div>
 
 <!-- ═══ NAVBAR ════════════════════════════════════════════ -->
 <nav class="nav" id="navbar">
@@ -1114,6 +1168,13 @@
 </footer>
 
 
+<!-- ═══ AVISO DE COOKIES ═══════════════════════════════════ -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Usamos cookies para mejorar tu experiencia y entender cómo llega la gente a nuestra página. Al seguir navegando, aceptas su uso.</p>
+  <button id="cookieAccept">Entendido</button>
+</div>
+
+
 <!-- ═══ WHATSAPP FLOTANTE ══════════════════════════════════ -->
 <a href="https://wa.me/573229662307?text=Hola%20Charlie's%20Cakes!%20Quisiera%20pedir%20una%20torta%20%F0%9F%8E%82" target="_blank" class="wa-float" title="Pedir por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.847L0 24l6.308-1.503A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.961 0-3.794-.534-5.364-1.46l-.385-.228-3.744.892.944-3.635-.251-.398A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12S17.43 21.818 12 21.818z"/></svg>
@@ -1136,6 +1197,18 @@
     navbar.classList.toggle('scrolled', isScrolled);
     document.body.classList.toggle('scrolled', isScrolled);
   });
+
+  /* Aviso de cookies */
+  (function() {
+    const banner = document.getElementById('cookieBanner');
+    if (!localStorage.getItem('cookiesAceptadas')) {
+      setTimeout(() => banner.classList.add('show'), 800);
+    }
+    document.getElementById('cookieAccept').addEventListener('click', () => {
+      localStorage.setItem('cookiesAceptadas', '1');
+      banner.classList.remove('show');
+    });
+  })();
 
   /* Hamburger */
   function toggleMenu() {
@@ -1203,6 +1276,7 @@
   /* Carrusel de testimonios (reseñas reales de Google) */
   (function() {
     const reviews = [
+      { name: 'Alfredo Mendoza', initial: 'A', text: 'No soy dulcero pero, cada vez que pedimos estos cuchareables no puedo dejar de comer! Los mejores sabores, frescura y calidad. 100% recomendados.', source: 'Reseña de Google' },
       { name: 'Eleana Perez', initial: 'E', text: 'Excelentes postres, super recomendados 😊 10 de 10 👏👏👏', source: 'Reseña de Google' },
       { name: 'Alejandro Lievano', initial: 'A', text: 'Excelente servicio, Carlos es una persona demasiado atenta y la torta le gustó mucho a mi familia.', source: 'Reseña de Google' },
       { name: 'Meli Isaza', initial: 'M', text: 'De las tortas más ricas que he probado, adicional la atención de Carlos super excelente, los recomiendo a ojo cerrado.', source: 'Reseña de Google · Local Guide' },
